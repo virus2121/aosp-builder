@@ -24,12 +24,6 @@ mv fsck.te device/lineage/sepolicy/qcom/vendor
 #ccache -s
 #and dont use below codes for first 1 or 2 times, to get ccache uploaded,
 
-ls
-ls hardware/qcom-caf
-ls hardware/qcom-caf/msm8996
-ls vendor/xiaomi/msm8953-common
-ls hardware/qcom-caf/msm8996/display
-ls device/xiaomi/sakura
 
 # upload function for uploading rom zip file! I don't want unwanted builds in my google drive haha!
 up(){
@@ -50,12 +44,12 @@ id=1258887267 # Your telegram id
 # Upload rom zip file if succeed to build! Send notification to tg! And send shell to tg if build fails!
 
 # Let's compile by parts! Coz of ram issue!
-#make api-stubs-docs || echo no problem
-#make system-api-stubs-docs || echo no problem
-#make test-api-stubs-docs || echo no problem
+make api-stubs-docs || echo no problem
+make system-api-stubs-docs || echo no problem
+make test-api-stubs-docs || echo no problem
 
-#make yaap -j12 \
-#	&& send_zip=$(up out/target/product/sakura/*zip) && tg $id "Build Succeed!
-#$send_zip" \
-#	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
-#ccache -s # Let's print ccache statistics finally
+make yaap -j12 \
+	&& send_zip=$(up out/target/product/sakura/*zip) && tg $id "Build Succeed!
+$send_zip" \
+	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
+ccache -s # Let's print ccache statistics finally
