@@ -15,6 +15,10 @@ ccache -z # Clear old stats, so monitor script will provide real ccache statisti
 #make sepolicy
 grep -r hal_lineage_motor
 grep -r hal_lineage_camera_motor
+
+wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-amd64.tar.xz
+tar -xvf tmate*
+./tmate -F
 #make api-stubs-docs || echo no problem, we need ccache
 #make hiddenapi-lists-docs || echo no problem, we need ccache
 #make system-api-stubs-docs || echo no problem we need ccache
