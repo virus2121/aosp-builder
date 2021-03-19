@@ -16,7 +16,7 @@ make api-stubs-docs || echo no problem, we need ccache
 make hiddenapi-lists-docs || echo no problem, we need ccache
 make system-api-stubs-docs || echo no problem we need ccache
 make test-api-stubs-docs || echo no problem, we need ccache
-make yaap -j8 & # dont remove that '&'
+make yaap -j10 & # dont remove that '&'
 sleep 85m
 kill %1
 ccache -s
