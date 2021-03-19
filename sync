@@ -19,6 +19,7 @@ rm -rf wlan
 git clone https://github.com/SuperCosmicBeing/hardware_qcom_wlan wlan/ --depth=1
 
 cd msm8996
-rm -rf display media
+rm -rf display media audio
 git clone https://github.com/SuperCosmicBeing/display --depth=1
 git clone https://github.com/SuperCosmicBeing/media --depth=1
+git clone https://github.com/SuperCosmicBeing/audio --depth=1
