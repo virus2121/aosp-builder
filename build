@@ -3,7 +3,7 @@ cd /tmp/rom # Depends on where source got synced
 
 curl https://del.dog/raw/ypyttaxone >> gms_full.mk
 mv gms_full.mk vendor/gms/
-
+rm -rf device/generic/opengl-transport
 # Normal build steps
 . build/envsetup.sh
 lunch derp_sakura-userdebug
