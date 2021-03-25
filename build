@@ -45,12 +45,7 @@ id=1258887267 # Your telegram id
 # Upload rom zip file if succeed to build! Send notification to tg! And send shell to tg if build fails!
 
 # Let's compile by parts! Coz of ram issue!
-mka api-stubs-docs || echo no problem
-mka system-api-stubs-docs || echo no problem
-mka test-api-stubs-docs || echo no problem
-
-mka derp -j12 \
-	&& send_zip=$(up out/target/product/sakura/*zip) && tg $id "Build Succeed!
-$send_zip" \
-	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
+mka SystemUI
+$id "Build Succeed!" \
+tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
 ccache -s # Let's print ccache statistics finally
